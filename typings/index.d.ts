@@ -1,5 +1,6 @@
 declare module 'ytdl-core' {
   import { Readable } from 'stream';
+  import { Agent } from "https";
 
   // Utility to trick auto-complete to propose T and still accept string (#1188)
   type ExtendString<T extends string> = T | Omit<string, T>;
@@ -428,7 +429,7 @@ declare module 'ytdl-core' {
     function validateURL(string: string): boolean;
     function getURLVideoID(string: string): string | never;
     function getVideoID(string: string): string | never;
-    function setIpBindCallback(callback: () => (string | null)): void;
+    function setIpBindCallback(callback: () => (Agent | null)): void;
     const version: number;
   }
 
